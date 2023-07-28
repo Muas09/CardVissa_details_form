@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Vissa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="cards">
+        <div class="card-front">
+            <img src="./images/card-logo.svg" alt="card logo">
+            <h1 class="card-num">0000 0000 0000 0000</h1>
+            <p class="holder-name">Jane Appleseed</p>
+            <p class="expire-date">00/00</p>
+        </div>
+        <div class="card-back">
+            <p class="cvc">123</p>
+        </div>
+    </section>
+    <section class="form">
+        <form>
+            <div class="name">
+                <p class="field-title">CARDHOLDER NAME</p>
+                <input class="name-field" type="text" required placeholder="e.g. Jane Appleseed">
+                <p class="name-warn">CAN'T BE BLANK</p>
+            </div>
+            <div class="number">
+                <p class="field-title">CARD NUMBER</p>
+                <input class="num-field" type="text" placeholder="e.g. 1234 5678 9123 0000">
+                <p class="number-warn">VALUE MUST BE 16 DIGITS</p>
+            </div>
+            <div class="expire">
+                <p class="field-title">Exp. Date (MM/YY)</p>
+                <input class="month-field" type="number" placeholder="MM">
+                <input class="year-field" type="number" placeholder="YY">
+                <p class="expire-month-year-warn">MONTH AND YEAR FIELDS CAN'T BE BLANK</p>
+            </div>
+            <div class="cvc">
+                <p class="field-title">CVC</p>
+                <input class="cvc-field" type="number" placeholder="e.g. 123">
+                <p class="cvc-warn">CAN'T BE BLANK</p>
+            </div>
+            <button onclick="confirmBtnClick()" type="button" class="confirm">Confirm</button>
+        </form>
+    </section>
+    <section class="completion-message">
+        <img src="./images/icon-complete.svg" alt="completion icon">
+        <h1>Thank you!</h1>
+        <p>We've added your card details</p>
+        <button onclick="continueBtn()">Continue</button>
+    </section>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
