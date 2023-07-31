@@ -4,22 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Vissa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,200;0,600;1,300&family=Inter:wght@300&family=Montserrat:wght@200;300;400&family=Outfit:wght@500&family=Poppins:wght@100;700&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <section class="cards">
+    <div  class="cards">
         <div class="card-front">
-            <img src="./images/card-logo.svg" alt="card logo">
-            <h1 class="card-num">0000 0000 0000 0000</h1>
-            <p class="holder-name">Jane Appleseed</p>
-            <p class="expire-date">00/00</p>
+            <img src="./images/Bg-card.svg" alt="">
+            <div class="card-text">
+                <div class="logo">
+                    <div class="logo-big rectango"></div>
+                    <div class="logo-small rectango"></div>
+                </div>
+                <div class="card-num">0000 0000 0000 0000</div>
+                <div class="name-date">
+                    <div class="holder-name">Jane Appleseed</div>
+                    <div class="expire-date">00/00</div>
+                </div>
+            </div>
         </div>
+        
         <div class="card-back">
-            <p class="cvc">123</p>
+            <img src="./images/Bg-card-back.svg" alt="">
+            <p class="cvc">000</p>
         </div>
-    </section>
-    <section class="form">
+    </div>
+    <div class="form">
         <form>
             <div class="name">
                 <p class="field-title">CARDHOLDER NAME</p>
@@ -44,13 +57,13 @@
             </div>
             <button onclick="confirmBtnClick()" type="button" class="confirm">Confirm</button>
         </form>
-    </section>
-    <section class="completion-message">
+    </div>
+    <div class="completion-message">
         <img src="./images/icon-complete.svg" alt="completion icon">
         <h1>Thank you!</h1>
         <p>We've added your card details</p>
         <button onclick="continueBtn()">Continue</button>
-    </section>
+    </div>
     
     <script src="script.js"></script>
     
