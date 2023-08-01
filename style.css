@@ -108,7 +108,7 @@ body {
 
 .cards .card-back .cvc {
   position: absolute;
-  left: 88%;
+  left: 74%;
   top: 51%;
   font-weight: 400;
   color: #F5F5F5;
@@ -121,14 +121,11 @@ body {
   display: flex;
   justify-content: center;
   margin: auto;
-  width: 45%;
+  width: 30%;
 }
 
 .form form {
 display: grid;
-  grid-template-columns: repeat(4, minmax(6rem, 6rem));
-  row-gap: 0.5rem;
-  column-gap: 1.5rem;
 }
 
 .form form .name,
@@ -136,11 +133,11 @@ display: grid;
   grid-column: 1/5;
 }
 
-.form form input {
-border: 2px solid;
-  border-color: linear-gradient(90deg, #6A5ACD 0%, #FF7F50 100%);
-  background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
-  width: 100%;
+.form form .name-field, .num-field{
+  border: 2px solid;
+  border-image: linear-gradient(#e66465, #9198e5) 1;
+  border-radius: 10px;
+  width: 95%;
   border-radius: 20px;
   padding: 15px 12px 15px 14px;
   font-size: 16px;
@@ -149,43 +146,62 @@ border: 2px solid;
   line-height: 25px;
 }
 
+.form form .month-field,.year-field{
+  padding: 15px 27px;
+  border-radius: 20px;
+  width: 40px;
+  border-image: linear-gradient(#e66465, #9198e5) 1;
+  border-radius: 10px;
+ 
+}
+
+
+.expire {
+  display: grid;
+  grid-template-columns: auto 1fr; 
+  grid-gap: 10px; 
+}
+
+.two-column{
+  display: flex;
+  gap: 10px;
+  
+}
+
+.expire-cvc{
+  display: flex;
+  gap: 49px;
+  align-items: center;
+
+}
+.cvc{
+  margin-left: 61px;
+}
+.cvc .cvc-field{
+  border-image: linear-gradient(#e66465, #9198e5) 1;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 15px 12px;
+  width: 128%;
+  border-radius: 20px;
+}
+
+.field-title {
+  grid-column: 1 / 3; 
+  margin-top: 20px;
+}
+
+
 .form form input:focus,
 .form form input:active,
 .form form input:focus-within {
   border-image: linear-gradient(to left, hsl(249deg, 99%, 64%), hsl(278deg, 94%, 30%)) 1;
   border-radius: 0.3rem;
 }
-
-.form form .expire {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  grid-column: 1/3;
-}
-
-.form form .expire .field-title {
-  flex-basis: 100%;
-}
-
-.form form .expire .month-field,
-.form form .expire .year-field {
-  width: 47%;
-  margin: 0;
-}
-
-.form form .expire .expire-month-year-warn {
-  flex-basis: 100%;
-}
-
-.form form .cvc {
-  grid-column: 3/5;
-}
-
 .form form .confirm {
 font-family: Roboto;
   font-size: 16px;
-  font-style: normal;
+  margin-top: 50px;
   font-weight: 700;
   grid-column: 1/5;
   background: #3A0652;
@@ -238,7 +254,6 @@ font-family: Roboto;
   filter: brightness(1.2);
 }
 
-/* Warning Styles */
 .name-warn,
 .number-warn,
 .expire-month-year-warn,
@@ -249,7 +264,6 @@ font-family: Roboto;
   display: none;
 }
 
-/* Form field title */
 .field-title {
   color: #808080;
   font-size: 16px;

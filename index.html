@@ -47,16 +47,20 @@
                 <input class="num-field" type="text" placeholder="e.g. 1234 5678 9123 0000">
                 <p class="number-warn">VALUE MUST BE 16 DIGITS</p>
             </div>
-            <div class="expire">
-                <p class="field-title">Exp. Date (MM/YY)</p>
-                <input class="month-field" type="number" placeholder="MM">
-                <input class="year-field" type="number" placeholder="YY">
-                <p class="expire-month-year-warn">MONTH AND YEAR FIELDS CAN'T BE BLANK</p>
-            </div>
-            <div class="cvc">
-                <p class="field-title">CVC</p>
-                <input class="cvc-field" type="number" placeholder="e.g. 123">
-                <p class="cvc-warn">CAN'T BE BLANK</p>
+            <div class="expire-cvc">
+                <div class="expire">
+                    <div class="field-title">Exp. Date (MM/YY)</div>
+                    <div class="two-column">
+                        <input class="month-field" type="number" placeholder="MM">
+                        <input class="year-field" type="number" placeholder="YY">
+                    </div>
+                    <div class="expire-month-year-warn">MONTH AND YEAR FIELDS CAN'T BE BLANK</div>
+                </div>
+                <div class="cvc">
+                    <div class="field-title">CVC</div>
+                    <input class="cvc-field" type="number" placeholder="e.g. 123">
+                    <div class="cvc-warn">CAN'T BE BLANK</div>
+                </div>
             </div>
             <button onclick="confirmBtnClick()" type="button" class="confirm">Confirm</button>
         </form>
