@@ -219,7 +219,7 @@ html, body {
   
 }
 .cards-img-desktop {
-  width: 500px;
+  width: 512px;
   height: 352px; 
   object-fit: cover;
   display: flex;
@@ -229,7 +229,7 @@ html, body {
 
 .cards .card-front {
    top: 55%;
-  left: 41%;
+  left:50%;
   width: 288px;
   height: 160px; 
 
@@ -238,7 +238,6 @@ html, body {
 .card-text {
   top: 20%;
   left: 10%;
-  
   width: 130%;
   display: flex;
 
@@ -270,30 +269,27 @@ html, body {
 
 
 .cards .card-front .card-num {
-  
-  font-size: 16px;
+  font-size: 18px;
 }
 
-.cards .card-front .holder-name{
- 
+.cards .card-front .holder-name{ 
   font-size: 16px;
 }
 .cards .card-front .expire-date {
-  margin-left: 100px;
-  
-  font-size: 16px;
+    margin-left: 130px;
+    font-size: 12px;
   
 }
 
 .name-date{
   display: flex;
   gap: 10px;
-  margin-top: 13px;
+  margin-top: 16px;
 }
 
 
 .cards .card-back {
-  left: 38%;
+  left: 45%;
   top: -2%;
   width: 288px;
   height: 160px; 
@@ -307,5 +303,10 @@ html, body {
 }
 .cvc{
   margin-left: 61px;
+}
+form{
+      margin-top: -130px;
+        margin-left: 114px;
+        justify-content: cen
 }
 }
