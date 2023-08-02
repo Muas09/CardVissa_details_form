@@ -20,17 +20,14 @@ input{
 }
 .form form .name-field, .num-field{
   height: 50px;
-  border-radius: 10px;
-  width: 99%;
-  border-radius: 20px;
+  width: 100%; 
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
  
 }
-.form form .month-field,.year-field{
-  border-radius: 20px;
+.form form .month-field,.year-field{ 
   width: 80px;
   height: 50px;
   text-align: center;
@@ -42,7 +39,6 @@ input{
   margin-left: 2px;
   margin-top: 14px;
   height: 50px;
-  border-radius: 20px;
   text-align: center;
 }
 
@@ -55,11 +51,11 @@ input{
   background-clip:  content-box, border-box;
 
 }
-/* .form form input:focus,
+.form form input:focus,
 .form form input:active,
 .form form input:focus-within {
   border-image: linear-gradient(to left, hsl(249deg, 99%, 64%), hsl(278deg, 94%, 30%)) 1;
-} */
+}
 
 
 .cards {
@@ -188,7 +184,6 @@ input{
 }
 
 
-
 .two-column {
   display: flex;
   gap: 10px;
@@ -196,16 +191,11 @@ input{
 }
 
 
-
 .expire-cvc {
   display: flex;
   gap: 49px;
-
   align-items: center;
-
 }
-
-
 
 
 .form form .confirm {
@@ -216,7 +206,6 @@ input{
   background: #3A0652;
   border-radius: 15px;
   color: #FFF;
-  width: 459px;
   padding: 21px 20px 20px 20px;
   cursor: pointer;
 }
@@ -295,9 +284,10 @@ input{
   }
 
   .card-text {
-    top: 20%;
-    left: 10%;
-    width: 130%;
+    top: 21%;
+    left: 13%;
+    width: 138%;
+    margin-left: 25px;
     display: flex;
 
 
@@ -313,7 +303,7 @@ input{
   .logo-big.rectango {
     width: 50px;
     height: 50px;
-    margin-left: 32px;
+    margin-left: 0;
     background: #F5F5F5;
     border-radius: 50px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
@@ -330,11 +320,13 @@ input{
 
 
   .cards .card-front .card-num {
-    font-size: 18px;
+    font-size: 16px;
+    margin-left: 0;
   }
 
   .cards .card-front .holder-name {
     font-size: 16px;
+    margin-left: 0;
   }
 
   .cards .card-front .expire-date {
@@ -349,7 +341,6 @@ input{
     margin-top: 16px;
   }
 
-
   .cards .card-back {
     left: 36%;
     top: -1%;
@@ -357,7 +348,6 @@ input{
     height: 160px;
 
   }
-
   .cards .card-back .cvc {
     left: 101%;
     top: 61%;
@@ -374,23 +364,21 @@ input{
     justify-content: center;
   }
 
-  .name-field,
-  .num-field {
-    width: 373px;
+  .name-field{
     border-radius: 10px;
-    padding: 8px 10px;
+  }
+  .num-field {
+    border-radius: 10px;
+ 
   }
 
   .form form .month-field,
   .year-field {
     border-radius: 10px;
-    padding: 8px 10px;
-  }
 
+  }
   .cvc .cvc-field {
     border-radius: 10px;
-    padding: 8px 10px;
-    width: 160px;
   }
 
   .name-warn,
@@ -409,7 +397,6 @@ input{
   .form form .confirm {
     border-radius: 10px;
     background: #21092F;
-    width: 389px;
 
   }
   .completion-message {
