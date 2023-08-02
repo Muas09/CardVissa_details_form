@@ -129,6 +129,33 @@ else{
     ev.preventDefault()
 }
 }
+function input_change(ev) {
+    if (ev.currentTarget === month_field) {
+        // Kiểm tra giá trị của tháng, chỉ cho phép từ 1 đến 12
+        var monthValue = parseInt(month_field.value);
+        var currentMonth = new Date().getMonth() + 1; // Lấy tháng hiện tại
+        if (isNaN(monthValue) || monthValue < 1 || monthValue > 12 || monthValue < currentMonth) {
+            document.querySelector('.expire-month-year-warn').style.display = 'initial';
+            month_field.style.borderColor = 'hsl(0, 100%, 66%)';
+        } else {
+            document.querySelector('.expire-month-year-warn').style.display = 'none';
+            month_field.style.borderColor = 'hsl(279, 6%, 55%)';
+            document.querySelector('.expire-date').innerHTML = monthValue + '/' + year_field.value;
+        }
+    } else if (ev.currentTarget === year_field) {
+        // Kiểm tra giá trị của năm, chỉ cho phép từ năm hiện tại trở về trước
+        var currentYear = new Date().getFullYear();
+        var yearValue = parseInt(year_field.value);
+        if (isNaN(yearValue) || yearValue < currentYear) {
+            document.querySelector('.expire-month-year-warn').style.display = 'initial';
+            year_field.style.borderColor = 'hsl(0, 100%, 66%)';
+        } else {
+            document.querySelector('.expire-month-year-warn').style.display = 'none';
+            year_field.style.borderColor = 'hsl(279, 6%, 55%)';
+            document.querySelector('.expire-date').innerHTML = month_field.value + '/' + yearValue;
+        }
+    }
+}
 function num_field_process_value(ev){
     var value = num_field.value
     var newValue = value
@@ -144,16 +171,12 @@ else if(value.length > 8 && value.length <= 12){
     newValue = value.slice(0, 4) + ' ' + value.slice(4, 8) + ' ' + value.slice(8, 12) + ' ' + value.slice(12)
     }
 
-
     document.querySelector('.card-num').innerHTML = newValue
-    
-
 
 }
 function continueBtn(){
     document.querySelector('.completion-message').style.display = 'none'
     document.querySelector('.form').style.display = 'flex'
-
     num_field.value = ''
     name_field.value = ''
     month_field.value = ''
