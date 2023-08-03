@@ -4,60 +4,96 @@ var month_field = document.querySelector('.month-field');
 var year_field = document.querySelector('.year-field');
 var cvc_field = document.querySelector('.cvc-field');
 
+// Add event listeners for input clicks
 name_field.addEventListener('click', inputClick);
 num_field.addEventListener('click', inputClick);
 month_field.addEventListener('click', inputClick);
 year_field.addEventListener('click', inputClick);
 cvc_field.addEventListener('click', inputClick);
 
+// Add event listeners for input changes
 name_field.addEventListener('input', input_change);
 num_field.addEventListener('input', input_change);
 month_field.addEventListener('input', input_change);
 year_field.addEventListener('input', input_change);
 cvc_field.addEventListener('input', input_change);
 
+// Add event listeners for keypress
 name_field.addEventListener('keypress', ev => {
-    if (ev.key === 'Enter') { num_field.focus(); }
+    if (ev.key === 'Enter') {
+        num_field.focus();
+    }
 });
 num_field.addEventListener('keypress', inputKeyPress);
 month_field.addEventListener('keypress', inputKeyPress);
 year_field.addEventListener('keypress', inputKeyPress);
 cvc_field.addEventListener('keypress', inputKeyPress);
 
-function confirmBtnClick() {
-    if (name_field.value === '') {
-        document.querySelector('.name-warn').style.display = 'initial';
-        name_field.style.borderColor = 'hsl(0, 100%, 66%)';
+function confirmBtnClick(event) {
+    // Reset the warning styles and messages
+    resetWarnings();
+
+    // Check for valid cardholder name
+    if (!name_field.checkValidity() || name_field.value === '') {
+        showWarning(name_field, 'CAN\'T BE BLANK');
+        alert('Invalid or missing cardholder name');
     }
+
     // Check for valid card number
-    var cardNumber = num_field.value.replace(/\s/g, ''); // Remove spaces from the input
-    if (cardNumber === '' || cardNumber.length !== 16 || isNaN(cardNumber)) {
-        document.querySelector('.number-warn').style.display = 'initial';
-        num_field.style.borderColor = 'hsl(0, 100%, 66%)';
+    if (!num_field.checkValidity() || num_field.value === '') {
+        showWarning(num_field, 'VALUE MUST BE 16 DIGITS');
+        alert('Invalid or missing card number');
     }
-    if (month_field.value === '' || isNaN(month_field.value) || parseInt(month_field.value) < 1 || parseInt(month_field.value) > 12) {
-        document.querySelector('.expire-month-year-warn').style.display = 'initial';
-        month_field.style.borderColor = 'hsl(0, 100%, 66%)';
+
+    // Check for valid expiration date
+    var monthValue = parseInt(month_field.value);
+    var yearValue = parseInt(year_field.value);
+    if (isNaN(monthValue) || isNaN(yearValue) || monthValue < 1 || monthValue > 12 || yearValue <= 0) {
+        showWarning(month_field, 'MONTH AND YEAR FIELDS CAN\'T BE BLANK');
+        showWarning(year_field, 'MONTH AND YEAR FIELDS CAN\'T BE BLANK');
+        alert('Invalid or missing expiration date');
     }
-    if (year_field.value === '' || isNaN(year_field.value) || parseInt(year_field.value) < new Date().getFullYear()) {
-        document.querySelector('.expire-month-year-warn').style.display = 'initial';
-        year_field.style.borderColor = 'hsl(0, 100%, 66%)';
+
+    // Check for valid CVC
+    if (!cvc_field.checkValidity() || cvc_field.value === '' || cvc_field.value === '0') {
+        showWarning(cvc_field, 'CAN\'T BE BLANK');
+        alert('Invalid or missing CVC');
     }
-    if (cvc_field.value === '' || cvc_field.value.length !== 3 || isNaN(cvc_field.value)) {
-        document.querySelector('.cvc-warn').style.display = 'initial';
-        cvc_field.style.borderColor = 'hsl(0, 100%, 66%)';
-    } else {
-        document.querySelector('.form').style.display = 'none';
-        document.querySelector('.completion-message').style.display = 'flex';
+
+    // If any of the input fields are invalid, prevent confirmation
+    if (!name_field.checkValidity() || name_field.value === '' || !num_field.checkValidity() || num_field.value === '' || isNaN(monthValue) || isNaN(yearValue) || monthValue < 1 || monthValue > 12 || yearValue <= 0 || !cvc_field.checkValidity() || cvc_field.value === '' || cvc_field.value === '0') {
+        event.preventDefault(); // Prevent form submission
+        return;
     }
+
+    // Show completion message and hide the form
+    document.querySelector('.form').style.display = 'none';
+    document.querySelector('.completion-message').style.display = 'flex';
+}
+
+function resetWarnings() {
+    var warnings = document.querySelectorAll('.name-warn, .number-warn, .expire-month-year-warn, .cvc-warn');
+    var inputFields = document.querySelectorAll('.name-field, .num-field, .month-field, .year-field, .cvc-field');
+
+    warnings.forEach(warning => warning.style.display = 'none');
+    inputFields.forEach(field => {
+        field.classList.remove('invalid-input'); // Remove the CSS class for invalid input fields
+        field.style.borderColor = 'hsl(279, 6%, 55%)'; // Set the default border color
+    });
+}
+
+function showWarning(inputField, message) {
+    var warning = inputField.parentElement.querySelector('.name-warn, .number-warn, .expire-month-year-warn, .cvc-warn');
+    if (warning) {
+        warning.style.display = 'initial';
+    }
+    inputField.classList.add('invalid-input'); // Add the CSS class for invalid input fields
+    inputField.style.borderColor = 'hsl(0, 100%, 66%)'; // Set the red border color
 }
 
 function inputClick(ev) {
+    resetWarnings();
     ev.currentTarget.style.borderColor = 'hsl(279, 6%, 55%)';
-    var warning = ev.currentTarget.parentElement.querySelector('.name-warn,.number-warn,.expire-month-year-warn,.cvc-warn');
-    if (warning) {
-        warning.style.display = 'none';
-    }
 }
 
 function input_change(ev) {
@@ -68,10 +104,9 @@ function input_change(ev) {
     } else if (ev.currentTarget === month_field || ev.currentTarget === year_field) {
         var monthValue = parseInt(month_field.value);
         var yearValue = parseInt(year_field.value);
-        if (isNaN(monthValue) || isNaN(yearValue) || monthValue < 1 || monthValue > 12 || yearValue < new Date().getFullYear()) {
-            document.querySelector('.expire-month-year-warn').style.display = 'initial';
-            month_field.style.borderColor = 'hsl(0, 100%, 66%)';
-            year_field.style.borderColor = 'hsl(0, 100%, 66%)';
+        if (isNaN(monthValue) || isNaN(yearValue) || monthValue < 1 || monthValue > 12 || yearValue <= 0) {
+            showWarning(month_field, 'MONTH AND YEAR FIELDS CAN\'T BE BLANK');
+            showWarning(year_field, 'MONTH AND YEAR FIELDS CAN\'T BE BLANK');
         } else {
             document.querySelector('.expire-month-year-warn').style.display = 'none';
             month_field.style.borderColor = 'hsl(279, 6%, 55%)';
@@ -117,11 +152,20 @@ function inputKeyPress(ev) {
 }
 
 function continueBtn() {
+    // Hide completion message and show the form
     document.querySelector('.completion-message').style.display = 'none';
     document.querySelector('.form').style.display = 'flex';
+
+    // Reset input fields
     num_field.value = '';
     name_field.value = '';
     month_field.value = '';
     year_field.value = '';
     cvc_field.value = '';
+
+    // Reset card details
+    document.querySelector('.card-num').innerHTML = '0000 0000 0000 0000';
+    document.querySelector('.holder-name').innerHTML = 'Jane Appleseed';
+    document.querySelector('.expire-date').innerHTML = '00/00';
+    document.querySelector('.cvc').innerHTML = '000';
 }

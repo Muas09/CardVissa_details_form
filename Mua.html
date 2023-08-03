@@ -19,8 +19,8 @@
 <body>
     <div class="container">
         <div class="cards">
+            
             <img class="cards-img-desktop" src="./images/Bg-main-desktop.svg" alt="">
-
             <div class="card-front">
                 <img class="card-front-img" src="./images/Bg-card-front.svg" alt="">
                 <div class="card-text">
@@ -35,7 +35,8 @@
                     </div>
                 </div>
             </div>
-
+    
+           
             <div class="card-back">
                 <img class="card-back-img" src="./images/Bg-card-back.svg" alt="">
                 <p class="cvc">000</p>
@@ -47,10 +48,9 @@
                     <div class="field-title">CARDHOLDER NAME</div>
                     <div class="custom-border">
                         <input
-                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
-                            class="name-field" maxlength="30" type="text" required placeholder="e.g. Jane Appleseed">
+                        onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || event.charCode === 32"
+                            class="name-field" maxlength="25" type="text" required placeholder="e.g. Jane Appleseed">
                     </div>
-
                     <br>
                     <div class="name-warn">CAN'T BE BLANK</div>
                 </div>
@@ -67,36 +67,33 @@
                         <div class="field-title">Exp. Date (MM/YY)</div>
                         <div class="two-column">
                             <div class="custom-border-datetime">
-                                <input type="number" class=" month_field"
-                                    placeholder="MM">
+                                <input type="number" class="month-field" placeholder="MM">
                             </div>
                             <div class="custom-border-datetime">
-                                <input type="number" class=" year-field"
-                                    type="text" placeholder="YY">
+                                <input type="number" class="year-field" placeholder="YY">
                             </div>
-
                         </div>
                         <div class="expire-month-year-warn">MONTH AND YEAR FIELDS CAN'T BE BLANK</div>
                     </div>
                     <div class="cvc">
                         <div class="field-title">CVC</div>
                         <div class="custom-border-cvc">
-                            <input type="text" min="1" class="cvc-field" placeholder="e.g. 123"> <br>
+                            <input type="text" class="cvc-field" placeholder="e.g. 123"> <br>
                         </div>
                         <div class="cvc-warn">CAN'T BE BLANK</div>
                     </div>
                 </div>
                 <button onclick="confirmBtnClick()" type="button" class="confirm">Confirm</button>
             </form>
-        </div>`
+        </div>
         <div class="completion-message">
             <img src="./images/Icon-complete.svg" alt="completion icon">
             <h1>Thank you!</h1>
             <p>We've added your card details</p>
             <button onclick="continueBtn()">Continue</button>
         </div>
-
     </div>
+    
 
     <script src="script.js"></script>
 
