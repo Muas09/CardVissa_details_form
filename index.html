@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,27 +45,44 @@
             <form>
                 <div class="name">
                     <div class="field-title">CARDHOLDER NAME</div>
-                        <input  class="name-field custom-border" type="text" required placeholder="e.g. Jane Appleseed"> 
-                   <br>
+                    <div class="custom-border">
+                        <input
+                            onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                            class="name-field" maxlength="30" type="text" required placeholder="e.g. Jane Appleseed">
+                    </div>
+
+                    <br>
                     <div class="name-warn">CAN'T BE BLANK</div>
                 </div>
                 <div class="number">
                     <div class="field-title">CARD NUMBER</div>
-                    <input class="num-field custom-border" type="text" placeholder="e.g. 1234 5678 9123 0000"> <br>
+                    <div class="custom-border">
+                        <input onkeypress="return (event.charCode != 48)" class="num-field " maxlength="16" type="text"
+                            placeholder="e.g. 1234 5678 9123 0000">
+                    </div>
                     <div class="number-warn">VALUE MUST BE 16 DIGITS</div>
                 </div>
                 <div class="expire-cvc">
                     <div class="expire">
                         <div class="field-title">Exp. Date (MM/YY)</div>
                         <div class="two-column">
-                            <input class="month-field custom-border" type="text" placeholder="MM">
-                            <input class="year-field custom-border" type="text" placeholder="YY">
+                            <div class="custom-border-datetime">
+                                <input type="number" class=" month_field"
+                                    placeholder="MM">
+                            </div>
+                            <div class="custom-border-datetime">
+                                <input type="number" class=" year-field"
+                                    type="text" placeholder="YY">
+                            </div>
+
                         </div>
                         <div class="expire-month-year-warn">MONTH AND YEAR FIELDS CAN'T BE BLANK</div>
                     </div>
                     <div class="cvc">
                         <div class="field-title">CVC</div>
-                        <input class="cvc-field custom-border" type="" placeholder="e.g. 123"> <br>
+                        <div class="custom-border-cvc">
+                            <input type="text" min="1" class="cvc-field" placeholder="e.g. 123"> <br>
+                        </div>
                         <div class="cvc-warn">CAN'T BE BLANK</div>
                     </div>
                 </div>
@@ -72,7 +90,7 @@
             </form>
         </div>`
         <div class="completion-message">
-            <img src="./images/icon-complete.svg" alt="completion icon">
+            <img src="./images/Icon-complete.svg" alt="completion icon">
             <h1>Thank you!</h1>
             <p>We've added your card details</p>
             <button onclick="continueBtn()">Continue</button>
