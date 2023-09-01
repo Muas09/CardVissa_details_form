@@ -19,9 +19,10 @@ body {
 
 }
 
-.cards-img-desktop{
+.cards-img-desktop {
   height: 100%;
 }
+
 input {
   padding: 2px;
   box-sizing: border-box;
@@ -102,9 +103,11 @@ input[type=number]::-webkit-inner-spin-button {
   height: 50px;
   width: 220px;
 }
-.date-input-field{
+
+.date-input-field {
   outline: none;
 }
+
 textarea:focus,
 input:focus {
   outline: none;
@@ -226,8 +229,8 @@ input:focus {
   font-size: 18px;
 }
 
-.name, 
-.number{
+.name,
+.number {
   margin-bottom: 20px;
 }
 
@@ -277,9 +280,11 @@ input:focus {
   padding: 21px 20px 20px 20px;
   cursor: pointer;
 }
+
 .invalid-input {
   border-color: hsl(0, 100%, 66%) !important;
 }
+
 .name-warn,
 .number-warn,
 .expire-month-year-warn,
@@ -353,6 +358,7 @@ input:focus {
   .two-column {
     gap: 0px;
   }
+
   .form form .confirm {
     border-radius: 10px;
     background: #21092F;
@@ -368,14 +374,15 @@ input:focus {
     display: block;
     overflow: hidden;
   }
- .form{
-  padding: 0 40px;
- }
- 
+
+  .form {
+    padding: 0 40px;
+  }
+
   .field-title {
     font-size: 14px;
   }
-  
+
   .form form .name-field,
   .num-field {
     height: 40px;
@@ -383,17 +390,20 @@ input:focus {
     width: 70%;
     padding: 8px 10px;
   }
+
   .cvc .cvc-field {
     padding: 8px 10px;
     font-size: 14px;
     height: 40px;
   }
-  .card-back-img, 
-  .card-front-img{
-    
+
+  .card-back-img,
+  .card-front-img {
+
     width: 350px;
     height: 200px;
   }
+
   .form form .month-field,
   .year-field {
     height: 40px;
@@ -419,6 +429,7 @@ input:focus {
     height: 177px;
 
   }
+
   .cards .card-back {
     left: 48%;
     top: -1%;
@@ -435,7 +446,7 @@ input:focus {
     display: flex;
 
   }
-  
+
 
   .logo {
     margin-top: 12px;
@@ -462,7 +473,7 @@ input:focus {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
   }
 
-  
+
 
 
   .cards .card-front .card-num {
@@ -479,17 +490,18 @@ input:focus {
   .cards .card-front .expire-date {
     margin-left: 0;
     margin-top: 4px;
-    font-size: 12px;}
+    font-size: 12px;
+  }
 
   .name-date {
     display: flex;
     position: relative;
-   
+
     margin-top: 16px;
 
   }
 
- 
+
 
   .cards .card-back .cvc {
     left: 81%;
@@ -512,7 +524,7 @@ input:focus {
   .form form {
     display: flex;
     flex-direction: column;
-  } 
+  }
 
   .name-warn,
   .number-warn,
@@ -549,10 +561,12 @@ input:focus {
     width: 90%;
 
   }
-  .custom-border-datetime{
+
+  .custom-border-datetime {
     width: 72px;
   }
-  .cvc .cvc-field{
+
+  .cvc .cvc-field {
     width: 100%;
   }
 }
